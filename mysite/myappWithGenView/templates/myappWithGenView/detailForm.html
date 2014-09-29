@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+        <h1>{{ stud.sname }}</h1>
+    {% if error_message %}
+        <p><strong>{{ error_massage }}</strong></p>
+    {% endif %}
+    <form action="{% url 'myapp:contact' stud.id %}" method="post">
+    {% csrf_token %}{# protecting against Cross Site Request Forgeries In short, all POST forms that are targeted at internal URLs #}
+        {% for contact in stud.contact_set.all %}
+            <label for="address{{forloop.counter  }}">{{ contact.address }}</label>
+            <input type="hidden" value="{{ contact.id }}" name="cid{{ forloop.counter }}">
+            <input type="number" value="{{ contact.stdno }}" id="cno{{ forloop.counter }}" name="cno{{ forloop.counter }}"><br/>
+        {% endfor %}
+        <input type="submit" name="SAVE">
+    </form>
+</body>
+</html>

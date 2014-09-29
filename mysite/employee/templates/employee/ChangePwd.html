@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Change Password</title>
+    <script type="text/javascript" src="{% static 'myapp/js/jquery-1.4.2.min.js' %}"></script>
+    <script src="{% static 'myapp/js/sammy.js' %}" type="text/javascript"></script>
+     <script src="{% static 'myapp/js/jquery.cookie1.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+       if(window.history.forward(1) != null)
+           window.history.forward(1);
+</script>
+</head>
+<body>
+        <h3>Change Password</h3>
+        <div class="bs-example">
+                <span class="text-danger" id="chpwderror"></span><br/>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="lblenail" class="control-label">Email ID</label></div>
+                    <div class="col-xs-5">
+                        <span class="form-control-static" id="empemail"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="lblopwd" class="control-label">Old Password</label></div>
+                    <div class="col-xs-5">
+                        <input type="password" name="opassword" required class="form-control" placeholder="Old Password" id="oldpwd">
+                        <span class="help-block text-danger" id="eropwd" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="lblnpwd" class="control-label">New Password</label></div>
+                    <div class="col-xs-5">
+                        <input type="password" name="npassword" required class="form-control" placeholder="New Password" id="newpwd">
+                        <span class="help-block text-danger" id="erpwd" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="lblopwd" class="control-label">Conform New Password</label></div>
+                    <div class="col-xs-5">
+                        <input type="password" name="cnpassword" required class="form-control" placeholder="Conform New Password" id="newcpwd">
+                        <span class="help-block text-danger" id="ercpass" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <a class="btn btn-primary" id="btnchangepwd" href="#/changepasswordsave">SUBMIT</a>
+                    </div>
+                </div>
+        </div>
+    <script type="text/javascript" src="{% static 'myapp/js/jquery-1.11.0.js' %}"></script>
+    <script type="text/javascript" src="{% static 'myapp/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

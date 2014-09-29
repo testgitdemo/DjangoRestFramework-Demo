@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    {% if 'all_stud_list' %}
+    <ul>
+        {% for std in all_stud_list %}
+            <li><a href="{% url 'myappWithGenView:detailview' std.id%} ">{{ std.sname }}</a></li>
+        {% endfor %}
+    {% else %}
+        <p>No Student are available</p>
+    {% endif %}
+    </ul>
+</body>
+</html>

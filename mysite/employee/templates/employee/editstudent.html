@@ -1,0 +1,94 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Student Detail Update</title>
+
+</head>
+<body>
+
+            <h3>Student Information</h3>
+            <input type="text"  id="sid" style="display: none">
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="name" class="control-label">Full Name</label></div>
+                    <div class="col-xs-5">
+                        <input type="text" name="sname" required class="form-control" placeholder="Full Name" id="sname">
+                        <span class="help-block" id="ersname" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label for="rollnolbl">Roll NO</label></div>
+                    <div class="col-xs-5">
+                        <input type="number" name="rollno" required class="form-control" placeholder="Roll NO" id="rollno">
+                        <span class="help-block" id="errno" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label for="emaillbl">Email ID</label></div>
+                    <div class="col-xs-5">
+                        <input type="email" name="emailid" required class="form-control" placeholder="Email" id="emailid">
+                        <span class="help-block" id="eremail" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label for="genlbl">Gender</label></div>
+                    <div class="col-xs-5">
+                            Male<input type="radio" name="gen" required class="col-xs-2" value="Male" id="male"><br/>
+                            Female<input type="radio" name="gen" required class="col-xs-2" value="Female" id="female">
+                        <span class="help-block" id="ergen" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label for="courselbl">Course</label></div>
+                    <div class="col-xs-5">
+                            <select class="form-control" name="course" id="course">
+                            </select>
+                            <span class="help-block" id="ercourse" style="color: red"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label for="agelbl">Age</label></div>
+                    <div class="col-xs-5">
+                        <input type="number" name="age" required class="form-control" max="65" min="10" placeholder="Age" id="age">
+                        <span class="help-block" id="erage" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label for="addresslbl">Address</label></div>
+                    <div class="col-xs-5">
+                        <textarea name="address" required class="form-control" placeholder="Address" id="address"></textarea>
+                        <span class="help-block" id="eraddress" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label for="citylbl">City</label></div>
+                    <div class="col-xs-5">
+                            <select class="form-control" name="city" id="city">
+
+                            </select>
+                            <span class="help-block" id="ercity" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label for="pincodelbl">Pin-Code</label></div>
+                    <div class="col-xs-5">
+                        <input type="number" name="pincode" required class="form-control" placeholder="Pin-Code" id="pincode">
+                        <span class="help-block" id="erpcode" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label for="moblbl">Mobile NO</label></div>
+                    <div class="col-xs-5">
+                        <input type="text" name="mobno" required class="form-control" placeholder="Mobile No" id="mobno">
+                        <span class="help-block" id="ermobno" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <a type="submit" class="btn btn-primary" href="#/student_update">SAVE</a>
+                    </div>
+                </div>
+</body>
+</html>

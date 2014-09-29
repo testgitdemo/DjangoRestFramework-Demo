@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Edit Department</title>
+</head>
+<body>
+            <h3>City Details</h3>
+                <input id="sid" type="text" style="display: none"><input id="ctid" type="text" style="display: none">
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="name" class="control-label">City Name</label></div>
+                    <div class="col-xs-5">
+                        <input type="text" id="city_name" required class="form-control" placeholder="City Name" value="{{ city_list.city_name }}">
+                        <span class="help-block" id="erctname" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <a class="btn btn-primary" href="#/update_city">SAVE</a>
+                    </div>
+                </div>
+</body>
+</html>

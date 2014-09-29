@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'myapp/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/bootstrap/css/bootstrap-theme.min.css' %}">
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="{% static 'myapp/bootstrap/js/bootstrap.min.js' %}"></script>
+   <style type="text/css">
+        body{
+            padding-top: 20px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .bs-example{
+    	margin: 20px;
+        }
+	    /* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+        .form-horizontal .control-label{
+            padding-top: 7px;
+         }
+    </style>
+</head>
+<body>
+{% include 'admin/Header.html' %}
+<div class="container">
+    <div class="jumbotron">
+         <h3>{{ stud.sname }}'s Contact Details.</h3>
+    <p class="text-danger">
+    {% if error_message %}
+        <p><strong>{{ error_massage }}</strong></p>
+    {% endif %}
+    </p>
+    <form action="{% url 'myapp:contact' stud.id %}" method="post" class="form-horizontal">
+    {% csrf_token %}{# protecting against Cross Site Request Forgeries In short, all POST forms that are targeted at internal URLs #}
+        {% for contact in stud.contact_set.all %}
+        <div class="row">
+            <div class="col-xs-2"><label for="address{{forloop.counter  }}">{{ contact.address }}</label></div>
+            <input type="hidden" value="{{ contact.id }}" name="cid{{ forloop.counter }}">
+            <div class="col-xs-3"><input type="number" value="{{ contact.stdno }}" id="cno{{ forloop.counter }}" name="cno{{ forloop.counter }}" class="form-control"></div>
+        </div>
+        {% endfor %}
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>
+{% include 'admin/Footer.html' %}
+</body>
+</html>

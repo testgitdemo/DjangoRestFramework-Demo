@@ -1,0 +1,133 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Employee Designation</title>
+    <link rel="stylesheet" href="{% static 'myapp/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/bootstrap/css/bootstrap-theme.min.css' %}">
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="{% static 'myapp/bootstrap/js/bootstrap.min.js' %}"></script>
+   <style type="text/css">
+        body{
+            padding-top: 20px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .bs-example{
+    	margin: 20px;
+        }
+	    /* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+        .form-horizontal .control-label{
+            padding-top: 7px;
+         }
+       p{
+           padding-left: 20px;
+           font-size: 12px;
+           font-style: italic;
+           text-align: justify;
+           background-color: #f2f2f2;
+       }
+    </style>
+     <script type="text/javascript">
+        function validate() {
+            if (document.formempdes.desig.value == '-1') {
+                document.getElementById("erdname").innerHTML = "Please select Employee Designation.";
+                return false;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+       if(window.history.forward(1) != null)
+           window.history.forward(1);
+</script>
+</head>
+<body>
+{% include 'employee/AdminHeader.html' %}
+<div class="container">
+    <div class="jumbotron">
+        <div class="bs-example">
+            <h3>Employee Designation Details</h3>
+            <table class="table">
+                <caption><big>Employee List For Set Designation.</big></caption>
+                <thead class="active">
+                    <th>Full Name</th>
+                    <th>Email Id</th>
+                    <th>Department</th>
+                    <th>Designation</th>
+                    <th>Mobile NO</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    {% if emp_list %}
+                        {% for emp in emp_list %}
+                            <tr class="info">
+                                <td>{{ emp.ename }}</td>
+                                <td>{{ emp.emailid }}</td>
+                                {% for dept in dept_list %}
+                                    {% if dept.id == emp.department_id %}
+                                        <td>{{ dept.dname }}</td>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if emp.designation_id == 0 %}
+                                    <td> Not Assign  </td>
+                                {% else %}
+                                    {% for des in des_list %}
+                                        {% if des.id == emp.designation_id %}
+                                            <td>{{ des.des_name }}</td>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                                <td>{{ emp.mobno }}</td>
+                                <td><a class="btn btn-primary" href="{% url 'mysiteadmin:changeAdminEmpDes' emp.id %}">Change Designation</a></td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Edit Employee's Designation.</h3>
+                </div>
+                <div class="panel-body">
+                    {% if emp %}
+                        <div class="row">
+                            <div class="col-xs-12"><p class="text-capitalize text-primary">  Designation assign to {{ emp.ename }}.</p></div>
+
+                        </div>
+                        <form action="{% url 'mysiteadmin:updateAdminEmpDesignation' %}" method="post" class="form-horizontal" name="formempdes" onsubmit="return validate()">
+                        {% csrf_token %}
+                            <input type="hidden" name="empid" value="{{ emp.id }}">
+                            <div class="row">
+                                <div class="col-xs-2" align="right"><label form="name" class="control-label">Designation</label></div>
+                                <div class="col-xs-5">
+                                    <select class="form-control" name="desig">
+                                     {% if emp.designation_id == 0 %}
+                                         <option value="0" selected>Not Assign</option>
+                                     {% endif %}
+                                     {% for des in des_list %}
+                                         {% if des.id == emp.designation_id %}
+                                             <option value="{{ des.id }}" selected>{{ des.des_name }}</option>
+                                         {% else %}
+                                             <option value="{{ des.id }}">{{ des.des_name }}</option>
+                                         {% endif %}
+                                     {% endfor %}
+                                    </select>
+                                    <span class="help-block" id="erdname" style="color: red"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-offset-2 col-xs-10">
+                                    <button type="submit" class="btn btn-primary">SUBMIT</button>
+                                </div>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+     </div>
+{% include 'employee/Footer.html' %}
+</div>
+</body>
+</html>

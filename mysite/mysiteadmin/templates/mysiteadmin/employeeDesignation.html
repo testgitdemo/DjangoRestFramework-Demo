@@ -1,0 +1,57 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <script type="text/javascript">
+       if(window.history.forward(1) != null)
+           window.history.forward(1);
+</script>
+    <script type="text/javascript">
+       if(window.history.forward(1) != null)
+           window.history.forward(1);
+</script>
+</head>
+<body>
+            <h3>Employee Designation Details</h3>
+            <table class="table" id="des_list">
+                <caption><big>Employee List For Set Designation.</big></caption>
+                <thead class="active">
+                    <th>Full Name</th>
+                    <th>Email Id</th>
+                    <th>Department</th>
+                    <th>Designation</th>
+                    <th>Mobile NO</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Edit Employee's Designation.</h3>
+                </div>
+                <div class="panel-body">
+{#                    {% if emp %}#}
+                        <div class="row">
+                            <div class="col-xs-12"><p class="text-capitalize text-primary">  Designation assign to <span id="empname"></span></p></div>
+                        </div>
+                            <input type="text" id="empid" style="display: none">
+                            <div class="row">
+                                <div class="col-xs-2" align="right"><label form="name" class="control-label">Designation</label></div>
+                                <div class="col-xs-5">
+                                    <select class="form-control" id="desig">
+                                    </select>
+                                    <span class="help-block" id="erdname" style="color: red"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-offset-2 col-xs-10">
+                                    <a class="btn btn-primary" href="#/change_desg">SUBMIT</a>
+                                </div>
+                            </div>
+                </div>
+            </div>
+</body>
+</html>

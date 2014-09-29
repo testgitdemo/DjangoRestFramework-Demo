@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'myapp/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/bootstrap/css/bootstrap-theme.min.css' %}">
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="{% static 'myapp/bootstrap/js/bootstrap.min.js' %}"></script>
+   <style type="text/css">
+        body{
+    	    padding-top: 70px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+    </style>
+</head>
+<body>
+{% include 'admin/Header.html' %}
+<div class="container">
+    <div class="jumbotron">
+        <h3>Student List</h3>
+        {% if 'all_stud_list' %}
+        <div class="list-group">
+            {% for std in all_stud_list %}
+                <a href="{% url 'myapp:detail' std.id%} " class="list-group-item text-capitalize"><span class="glyphicon glyphicon-file"><mark><big>  {{ std.sname }}</big></mark></span></a>
+            {% endfor %}
+        {% else %}
+            <p class="text-danger">No Student are available</p>
+        {% endif %}
+        </div>
+    </div>
+</div>
+{% include 'admin/Footer.html' %}
+</body>
+</html>

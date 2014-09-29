@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Employee Profile</title>
+</head>
+<body>
+            <h3>Profile</h3>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="name" class="control-label">Full Name</label></div>
+                    <div class="col-xs-5">
+                        <input type="text" id="name" required class="form-control" placeholder="Full Name">
+                        <span class="help-block" id="ername" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="emailidlbl" class="control-label">Email ID</label></div>
+                    <div class="col-xs-5">
+                        <input type="text" id="emailid" required class="form-control" placeholder="EmailID">
+                        <span class="help-block" id="eremail"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <a class="btn btn-primary" href="#/admin_profile_save">SAVE</a>
+                    </div>
+                </div>
+</body>
+</html>

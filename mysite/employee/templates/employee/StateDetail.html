@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>State Detail</title>
+</head>
+<body>
+            <h3>State Details</h3>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="cname" class="control-label">Country</label></div>
+                    <div class="col-xs-5">
+                            <select id="country" class="form-control">
+                            </select>
+                            <span class="help-block" id="ercountry" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="name" class="control-label">State Name</label></div>
+                    <div class="col-xs-5">
+                        <input type="text" id="state_name" required class="form-control" placeholder="State Name">
+                        <span class="help-block" id="ersname" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <a class="btn btn-primary" href="#/state_save">SAVE</a>
+                    </div>
+                </div>
+            <br/>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">State Detail List.</h3>
+                </div>
+                <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-2" align="right"><label form="couname" class="control-label">Select Country</label></div>
+                            <div class="col-xs-5">
+                                    <select id="countrysel" class="form-control">
+                                    </select>
+                                    <span class="help-block" id="ercountrynm" style="color: red"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-offset-2 col-xs-10">
+                                <a class="btn btn-primary" href="#/show_state">SHOW</a>
+                            </div>
+                        </div>
+
+                        <table class="table table-striped table-hover table-condensed table-bordered" id="state_list">
+                            <caption>State List.</caption>
+                            <thead>
+                                <tr class="active">
+                                    <th>State Name</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+</body>
+</html>

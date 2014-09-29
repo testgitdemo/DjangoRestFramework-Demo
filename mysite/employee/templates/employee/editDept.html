@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Edit Department</title>
+
+</head>
+<body>
+
+            <h3>Department Details</h3>
+                <input type="text" id="did" style="display: none">
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="name" class="control-label">Department Name</label></div>
+                    <div class="col-xs-5">
+                        <input type="text" name="dname" required class="form-control" placeholder="Department Name" id="dname">
+                        <span class="help-block" id="erdname" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <a class="btn btn-primary" href="#/dept_update">SAVE</a>
+                    </div>
+                </div>
+</body>
+</html>

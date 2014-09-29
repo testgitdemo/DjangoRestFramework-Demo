@@ -1,0 +1,75 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'myapp/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/bootstrap/css/bootstrap-theme.min.css' %}">
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="{% static 'myapp/bootstrap/js/bootstrap.min.js' %}"></script>
+   <style type="text/css">
+        body{
+            padding-top: 20px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .bs-example{
+    	margin: 20px;
+        }
+	    /* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+        .form-horizontal .control-label{
+            padding-top: 7px;
+         }
+    </style>
+</head>
+<body>
+ {% include 'admin/Header.html' %}
+<div class="container">
+    <div class="jumbotron">
+         <h2>{{ message }}<small class="small"> Detail</small></h2>
+        <div class="bs-example">
+            <form action="{% url 'university:saverecord' %}" method="post" class="form-horizontal">
+              {% csrf_token %}{# protecting against Cross Site Request Forgeries In short, all POST forms that are targeted at internal URLs #}
+                <div class="from-group">
+                    <label form="uniname" class="control-label col-xs-2">University Name</label>
+                    <div class="col-xs-10">
+                        <input type="text" name="uname" class="form-control" placeholder="University Full Name" required>
+                    </div>
+                </div>
+                <div class="from-group">
+                    <label form="uniemail" class="control-label col-xs-2">University Email ID</label>
+                    <div class="col-xs-10">
+                        <input type="text" name="emailid" class="form-control" placeholder="Email ID" required>
+                    </div>
+                </div>
+                <div class="from-group">
+                    <label form="uniweb" class="control-label col-xs-2">University Website</label>
+                    <div class="col-xs-10">
+                        <input type="text" name="website" class="form-control" placeholder="Website Name" required>
+                    </div>
+                </div>
+                 <div class="from-group">
+                    <label form="uniaddress" class="control-label col-xs-2">University Address</label>
+                    <div class="col-xs-10">
+                        <textarea rows="5" cols="50" name="address" maxlength="199" class="form-control" placeholder="Full Address With Pin-code"></textarea>
+                    </div>
+                </div>
+                <div class="from-group">
+                    <label form="unicontactno" class="control-label col-xs-2">University Contact NO</label>
+                    <div class="col-xs-10">
+                        <input type="text" name="contact" class="form-control" placeholder="Contact NO" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'admin/Footer.html' %}
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Student List</title>
+</head>
+<body>
+
+            <h3>Student List</h3>
+            <span id="msg" style="display: none"></span>
+            <table class="table table-striped table-hover table-condensed table-bordered" id="student_list">
+                <caption><big>Student Information List.</big>   <a href="#/employee/stud_info/" ><img src="{% static 'myapp/images/add.jpg' %}" height="30px" width="30px" class="img-rounded" alt="Image"><mark><big>  Add New Student</big></mark></a></caption>
+                <thead>
+                    <tr class="active">
+                        <th>RollNO</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Course</th>
+                        <th>B'Date</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Pin-Code</th>
+                        <th>Mobile NO</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+</body>
+</html>

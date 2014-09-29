@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'myapp/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/bootstrap/css/bootstrap-theme.min.css' %}">
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="{% static 'myapp/bootstrap/js/bootstrap.min.js' %}"></script>
+    <style type="text/css">
+        body{
+            padding-top: 20px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .bs-example{
+    	margin: 20px;
+        }
+    </style>
+</head>
+<body>
+{% include 'admin/Header.html' %}
+<div class="container">
+    <div class="jumbotron">
+        <h2>Course<small class="small"> Edit Detail</small></h2>
+        <div class="bs-example">
+             <form action="{% url 'university:updatecourse' cous_list.id uni_id%}" method="post" class="form-inline">
+                 {% csrf_token %}{# protecting against Cross Site Request Forgeries In short, all POST forms that are targeted at internal URLs #}
+                 <div class="form-group">
+                    <label class="sr-only">Course Name</label>
+                    <input type="text" name="cname" class="form-control" placeholder="Course Name" value="{{ cous_list.cname }}">
+                 </div>
+                 <button type="submit" class="btn btn-primary">SAVE</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'admin/Footer.html' %}
+</body>
+</html>

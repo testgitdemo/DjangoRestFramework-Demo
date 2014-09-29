@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+  {# display Student Contact New Info in Table format. #}
+    <h1>{{ stud.sname }}</h1>
+    <table border="1" style="border-style: solid">
+    <tr><th>Address</th><th>Contact NO</th></tr>
+    {% for contact in stud.contact_set.all %}
+        <tr><td align="center">{{ contact.address }}</td><td align="center">{{ contact.stdno }}</td></tr>
+    {% endfor %}
+    <tr><td colspan="2" align="center"><a href="{% url 'myappWithGenView:detailview' stud.id %}">Edit Again</a></td></tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,88 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Student Information System</title>
+    <link rel="stylesheet" href="{% static 'myapp/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/bootstrap/css/bootstrap-theme.min.css' %}">
+    <script src="{%  static 'myapp/bootstrap/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'myapp/js/jquery-1.4.2.min.js' %}"></script>
+    <script src="{% static 'myapp/js/sammy.js' %}" type="text/javascript"></script>
+    <script src="{% static 'myapp/js/operation.js' %}"></script>
+     <script src="{% static 'myapp/js/jquery.cookie1.js' %}" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+    </script>
+    <style type="text/css">
+
+    body{
+    	padding-top: 50px;
+    }
+    ul{
+        font-size: 14px;
+        text-align: center;
+    }
+    .pe{
+            padding: 20px;
+            font-size: 14px;
+            /*font-weight: bold;*/
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+         .bs-example{
+    	margin: 20px;}
+</style>
+</head>
+<body>
+    {# Responsive layouts automatically adjust and adapts to any device screen size, whether it is a desktop, a laptop, a tablet, or a mobile phone. #}
+ <nav id="mynavbar" class="navbar navbar-default navbar-inverse  navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--a class="navbar-brand" href="#">Start Bootstrap</a -->
+                   <a class="navbar-brand" id="homepage" href="#/">Student Information System</a>
+            </div>
+            <div class="collapse navbar-collapse" id="header_ele">
+                <ul class="nav navbar-nav" id="head">
+                    <li><a href="#/registration" id="regopen">Registration</a></li>
+                    <li><a href="#/employeelogin" id="emplogin">Login</a></li>
+                    <li><a href="#/forgotpwd" id="forgotpassword">Forgot Password</a></li>
+                    <li><a href="#/adminLogin" id="adminlogin">Admin</a></li>
+                </ul >
+            </div>
+        </div>
+    </nav>
+<div class="container">
+    <div class="text-center">
+        <h1>Student Information<small class="small"> system.</small></h1>
+        <p class="lead">A Student Information system is a web application for developed to manage student data.<br/> This is used to manage students, employees, courses, departments and all processes related to Student Information System.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="bs-example" id="welcome">
+            <div id="result" class="container-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <footer>
+                <p align="center" class="pe">&copy; copyright 2014 Priyansh Rajput</p>
+            </footer>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'myapp/js/jquery-1.11.0.js' %}"></script>
+    <script type="text/javascript" src="{% static 'myapp/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

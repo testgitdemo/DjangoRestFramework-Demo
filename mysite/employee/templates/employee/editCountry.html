@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+</head>
+<body>
+            <h3>Country Details</h3>
+                <input type="text" id="cid" style="display: none">
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="name" class="control-label">Country Name</label></div>
+                    <div class="col-xs-5">
+                        <input type="text" name="country_name" required class="form-control" placeholder="Country Name" id="country_name">
+                        <span class="help-block" id="ercname" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <a class="btn btn-primary" href="#/country_update">SAVE</a>
+                    </div>
+                </div>
+</body>
+</html>

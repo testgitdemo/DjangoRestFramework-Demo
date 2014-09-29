@@ -1,0 +1,85 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Employee</title>
+    <script type="text/javascript" src="{% static 'myapp/js/jquery-1.4.2.min.js' %}"></script>
+    <script src="{% static 'myapp/js/sammy.js' %}" type="text/javascript"></script>
+{#    <script src="{% static 'myapp/js/operation.js' %}"></script>#}
+     <script src="{% static 'myapp/js/jquery.cookie1.js' %}" type="text/javascript"></script>
+
+   <style type="text/css">
+        body{
+            padding-top: 20px;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .bs-example{
+    	margin: 20px;
+        }
+	    /* Fix alignment issue of label on extra small devices in Bootstrap 3.2 */
+        .form-horizontal .control-label{
+            padding-top: 7px;
+         }
+    </style>
+    <script type="text/javascript">
+{#       if(window.history.forward(1) != null)#}
+{#           window.history.forward(1);#}
+       $(document).ready(function()
+		{
+            debugger;
+{#            alert("Home call")#}
+{#            $('#mhome').hide();#}
+            $("#wcmsg").html(""+ $.cookie('empname'));
+            if($.cookie('empdesid')==1){
+                $('#desmsg').append('<div class="alert alert-info" role="alert"><strong>Designation</strong> is not assign by admin to you. </div>')
+            }
+            document.getElementById('empmenu').innerHTML = "";
+            $('#empmenu').append('<li><a href="#Home" id="ehome">Home</a></li>');
+            $('#empmenu').append('<li><a href="#Profile" id="eprofile">Profile</a></li>');
+            if($.cookie('empdesid')!=1 && $.cookie('empdesid')!=2 && $.cookie('empdesid')!=3){
+                $('#empmenu').append('<li><a href="#studentList" id="estudlist">Students List</a></li>');
+            }
+            if($.cookie('empdesid')==2){
+                 $('#empmenu').append('<li><a href="#studentList" id="estudlist">Students List</a></li>');
+                 $('#empmenu').append('<li><a href="#designation" id="edesig">Designation</a></li>');
+                 $('#empmenu').append('<li><a href="#employeedesignation" id="empdesigch">Employee Designation</a></li>');
+            }
+            if($.cookie('empdesid')==3){
+                $('#empmenu').append('<li><a href="#student" id="estd">Student</a></li>');
+                $('#empmenu').append('<li><a href="#studentlist" id="estudlist">Student List</a></li>');
+                $('#empmenu').append('<li><a href="#Course" id="ecourse">Course</a></li>');
+                $('#empmenu').append('<li><a href="#department" id="edept">Department</a></li>');
+                $('#empmenu').append('<li><a href="#country" id="ecountry">Country</a></li>');
+                $('#empmenu').append('<li><a href="#state" id="estate">State</a></li>');
+                $('#empmenu').append('<li><a href="#city" id="ecity">City</a></li>');
+            }
+            $('#empmenu').append('<li><a href="#changepassword" id="chpwd">Change Password</a></li>');
+            $('#empmenu').append('<li><a href="#Logout" id="logoutdone">Logout</a></li>');
+
+
+        });
+</script>
+</head>
+<body>
+{% include 'employee/Header.html' %}
+<div class="container">
+    <div class="jumbotron">
+        <div class="bs-example">
+            <div id="temp">
+                <h2>Welcome To <span id="wcmsg"></span></h2>
+                <div id="desmsg">
+                </div>
+            </div>
+            <div id="result">
+
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'employee/Footer.html' %}
+<script type="text/javascript" src="{% static 'myapp/js/jquery-1.11.0.js' %}"></script>
+    <script type="text/javascript" src="{% static 'myapp/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

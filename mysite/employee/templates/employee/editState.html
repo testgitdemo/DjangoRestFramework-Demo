@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Edit Department</title>
+
+</head>
+<body>
+            <h3>State Details</h3>
+            <input id="cid" type="text" style="display: none">
+            <input id="sid" type="text" style="display: none">
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="name" class="control-label">State Name</label></div>
+                    <div class="col-xs-5">
+                        <input type="text" id="state_name" required class="form-control" placeholder="State Name">
+                        <span class="help-block" id="ersname" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <a class="btn btn-primary" href="#/state_update">SAVE</a>
+                    </div>
+                </div>
+</body>
+</html>

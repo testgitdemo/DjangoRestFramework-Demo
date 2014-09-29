@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Course Detail</title>
+
+</head>
+<body>
+
+            <h3>Course Details</h3>
+
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="name" class="control-label">Course Name</label></div>
+                    <div class="col-xs-5">
+                        <input type="text" name="cname" required class="form-control" placeholder="Course Name" id="cname">
+                        <span class="help-block" id="ercname" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <a class="btn btn-primary" href="#/course_save">SAVE</a>
+                    </div>
+                </div>
+
+
+                <table class="table table-striped table-hover table-condensed table-bordered" id="course_list">
+                    <caption><big>Course List.</big></caption>
+                    <thead>
+                        <tr class="active">
+                            <th>Course Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+</body>
+</html>

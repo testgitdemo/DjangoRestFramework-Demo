@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>State Detail</title>
+</head>
+<body>
+            <h3>City Details</h3>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="cname" class="control-label">State</label></div>
+                    <div class="col-xs-5">
+                            <select id="state" class="form-control">
+                            </select>
+                            <span class="help-block" id="erstate" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2" align="right"><label form="name" class="control-label">City Name</label></div>
+                    <div class="col-xs-5">
+                        <input type="text" id="city_name" required class="form-control" placeholder="City Name">
+                        <span class="help-block" id="erctname" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-10">
+                        <a class="btn btn-primary" href="#/save_city">SAVE</a>
+                    </div>
+                </div>
+            <br/>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">City Detail List.</h3>
+                </div>
+                <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-2" align="right"><label form="couname" class="control-label">Select State</label></div>
+                            <div class="col-xs-5">
+                                    <select id="statesel" class="form-control">
+
+                                    </select>
+                                    <span class="help-block" id="erstatenm" style="color: red"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-offset-2 col-xs-10">
+                                <a class="btn btn-primary" href="#/show_city">SHOW</a>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover table-condensed table-bordered" id="city_list">
+                            <caption><big>City List.</big></caption>
+                            <thead>
+                                <tr class="active">
+                                    <th>City Name</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+</body>
+</html>
